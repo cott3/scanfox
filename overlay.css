@@ -1,0 +1,123 @@
+#qr-snipper-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483647;
+  cursor: crosshair;
+  background: rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+#qr-snipper-box {
+  position: absolute;
+  display: none;
+  border: 2px dashed #00d2ff;
+  background: rgba(0, 210, 255, 0.2);
+  pointer-events: none;
+}
+
+/* Floating Result Card */
+#qr-result-card {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 320px;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  font-family: system-ui, -apple-system, sans-serif;
+  z-index: 2147483647;
+  overflow: hidden;
+  border: 1px solid #45475a;
+  animation: qr-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes qr-slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.qr-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid #313244;
+}
+
+.qr-card-header.success {
+  background: #a6e3a1;
+  color: #11111b;
+}
+
+.qr-card-header.error {
+  background: #f38ba8;
+  color: #11111b;
+}
+
+.qr-close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: inherit;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.qr-card-body {
+  padding: 12px 14px;
+  font-size: 13px;
+  word-break: break-all;
+  max-height: 120px;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+
+.qr-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #181825;
+  border-top: 1px solid #313244;
+}
+
+.qr-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.qr-btn.primary {
+  background: #89b4fa;
+  color: #11111b;
+}
+
+.qr-btn.primary:hover {
+  background: #b4befe;
+}
+
+.qr-btn.secondary {
+  background: #313244;
+  color: #cdd6f4;
+}
+
+.qr-btn.secondary:hover {
+  background: #45475a;
+}
