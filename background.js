@@ -21,6 +21,12 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
   }
 });
 
+// Trigger snip when toolbar icon is clicked
+browser.action.onClicked.addListener((tab) => {
+  browser.tabs.sendMessage(tab.id, { action: "START_SNIP" });
+});
+
+
 // Listener for background tab requests
 browser.runtime.onMessage.addListener(async (message, sender) => {
   if (message.action === "OPEN_TAB") {
